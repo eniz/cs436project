@@ -1,0 +1,39 @@
+﻿@model OtelRezervasyon.Models.ODEMETIPI
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";    
+}
+
+<h2>Düzenle</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>ODEMETIPI</legend>
+
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ODEMEADI)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ODEMEADI)
+            @Html.ValidationMessageFor(model => model.ODEMEADI)
+        </div>
+
+        <p>
+            <input type="submit" value="Kaydet" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Listeye Geri Dön", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

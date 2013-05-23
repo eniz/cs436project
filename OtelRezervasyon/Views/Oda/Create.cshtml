@@ -1,0 +1,45 @@
+﻿@model OtelRezervasyon.Models.ODA
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Yeni Oluştur</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>ODA</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ODAKAPASITEID, "ODAKAPASITE")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ODAKAPASITEID", String.Empty)
+            @Html.ValidationMessageFor(model => model.ODAKAPASITEID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ODATIPID, "ODATIPI")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ODATIPID", String.Empty)
+            @Html.ValidationMessageFor(model => model.ODATIPID)
+        </div>
+
+        <p>
+            <input type="submit" value="Yeni Oluştur" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

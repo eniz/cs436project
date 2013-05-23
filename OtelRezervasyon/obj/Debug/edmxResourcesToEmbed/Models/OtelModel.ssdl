@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Alias="Self" Provider="Oracle.DataAccess.Client" ProviderManifestToken="11.2" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="IL" EntityType="Model.Store.IL" store:Type="Tables" Schema="ORS" />
+    <EntitySet Name="MUSTERI" EntityType="Model.Store.MUSTERI" store:Type="Tables" Schema="ORS" />
+    <EntitySet Name="ODA" EntityType="Model.Store.ODA" store:Type="Tables" Schema="ORS" />
+    <EntitySet Name="ODAKAPASITE" EntityType="Model.Store.ODAKAPASITE" store:Type="Tables" Schema="ORS" />
+    <EntitySet Name="ODATIPI" EntityType="Model.Store.ODATIPI" store:Type="Tables" Schema="ORS" />
+    <EntitySet Name="ODEMETIPI" EntityType="Model.Store.ODEMETIPI" store:Type="Tables" Schema="ORS" />
+    <EntitySet Name="OTEL" EntityType="Model.Store.OTEL" store:Type="Tables" Schema="ORS" />
+    <EntitySet Name="REZERVASYON" EntityType="Model.Store.REZERVASYON" store:Type="Tables" Schema="ORS" />
+    <EntitySet Name="REZERVASYONDURUM" EntityType="Model.Store.REZERVASYONDURUM" store:Type="Tables" Schema="ORS" />
+    <EntitySet Name="ULKE" EntityType="Model.Store.ULKE" store:Type="Tables" Schema="ORS" />
+    <EntitySet Name="YONETICI" EntityType="Model.Store.YONETICI" store:Type="Tables" store:Schema="ORS" store:Name="YONETICI">
+      <DefiningQuery>SELECT 
+      "YONETICI"."KULLANICIADI" AS "KULLANICIADI", 
+      "YONETICI"."PAROLA" AS "PAROLA"
+      FROM "ORS"."YONETICI" "YONETICI"</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="IL_ULKE_FK1" Association="Model.Store.IL_ULKE_FK1">
+      <End Role="ULKE" EntitySet="ULKE" />
+      <End Role="IL" EntitySet="IL" />
+    </AssociationSet>
+    <AssociationSet Name="MUSTERI_IL_FK1" Association="Model.Store.MUSTERI_IL_FK1">
+      <End Role="IL" EntitySet="IL" />
+      <End Role="MUSTERI" EntitySet="MUSTERI" />
+    </AssociationSet>
+    <AssociationSet Name="ODA_ODAKAPASITE_FK1" Association="Model.Store.ODA_ODAKAPASITE_FK1">
+      <End Role="ODAKAPASITE" EntitySet="ODAKAPASITE" />
+      <End Role="ODA" EntitySet="ODA" />
+    </AssociationSet>
+    <AssociationSet Name="ODA_ODATIPI_FK1" Association="Model.Store.ODA_ODATIPI_FK1">
+      <End Role="ODATIPI" EntitySet="ODATIPI" />
+      <End Role="ODA" EntitySet="ODA" />
+    </AssociationSet>
+    <AssociationSet Name="ODAKAPASITE_ODATIPI_FK1" Association="Model.Store.ODAKAPASITE_ODATIPI_FK1">
+      <End Role="ODATIPI" EntitySet="ODATIPI" />
+      <End Role="ODAKAPASITE" EntitySet="ODAKAPASITE" />
+    </AssociationSet>
+    <AssociationSet Name="OTEL_IL_FK1" Association="Model.Store.OTEL_IL_FK1">
+      <End Role="IL" EntitySet="IL" />
+      <End Role="OTEL" EntitySet="OTEL" />
+    </AssociationSet>
+    <AssociationSet Name="REZERVASYON_MUSTERI_FK1" Association="Model.Store.REZERVASYON_MUSTERI_FK1">
+      <End Role="MUSTERI" EntitySet="MUSTERI" />
+      <End Role="REZERVASYON" EntitySet="REZERVASYON" />
+    </AssociationSet>
+    <AssociationSet Name="REZERVASYON_ODATIPI_FK1" Association="Model.Store.REZERVASYON_ODATIPI_FK1">
+      <End Role="ODATIPI" EntitySet="ODATIPI" />
+      <End Role="REZERVASYON" EntitySet="REZERVASYON" />
+    </AssociationSet>
+    <AssociationSet Name="REZERVASYON_ODEMETIPI_FK1" Association="Model.Store.REZERVASYON_ODEMETIPI_FK1">
+      <End Role="ODEMETIPI" EntitySet="ODEMETIPI" />
+      <End Role="REZERVASYON" EntitySet="REZERVASYON" />
+    </AssociationSet>
+    <AssociationSet Name="REZERVASYON_REZERVASYONDU_FK1" Association="Model.Store.REZERVASYON_REZERVASYONDU_FK1">
+      <End Role="REZERVASYONDURUM" EntitySet="REZERVASYONDURUM" />
+      <End Role="REZERVASYON" EntitySet="REZERVASYON" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="IL">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Nullable="false" />
+    <Property Name="ILADI" Type="varchar2" Nullable="false" MaxLength="20" />
+    <Property Name="ULKEID" Type="number" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MUSTERI">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Nullable="false" />
+    <Property Name="ADI" Type="varchar2" Nullable="false" MaxLength="20" />
+    <Property Name="SOYADI" Type="varchar2" Nullable="false" MaxLength="20" />
+    <Property Name="ILID" Type="number" Nullable="false" />
+    <Property Name="POSTAKODU" Type="varchar2" MaxLength="20" />
+    <Property Name="EMAIL" Type="varchar2" MaxLength="20" />
+    <Property Name="TELEFON" Type="varchar2" MaxLength="20" />
+    <Property Name="FAKS" Type="varchar2" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="ODA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Nullable="false" />
+    <Property Name="ODAKAPASITEID" Type="number" Nullable="false" />
+    <Property Name="ODATIPID" Type="number" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ODAKAPASITE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Nullable="false" />
+    <Property Name="ADI" Type="varchar2" Nullable="false" MaxLength="20" />
+    <Property Name="SAYISI" Type="varchar2" Nullable="false" MaxLength="20" />
+    <Property Name="ODATIPID" Type="number" />
+  </EntityType>
+  <EntityType Name="ODATIPI">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Nullable="false" />
+    <Property Name="ADI" Type="varchar2" Nullable="false" MaxLength="20" />
+    <Property Name="RESIMI" Type="varchar2" MaxLength="20" />
+    <Property Name="FIYAT" Type="number" />
+  </EntityType>
+  <EntityType Name="ODEMETIPI">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Nullable="false" />
+    <Property Name="ODEMEADI" Type="varchar2" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="OTEL">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="OTELADI" Type="varchar2" Nullable="false" MaxLength="20" />
+    <Property Name="ILID" Type="number" Nullable="false" />
+    <Property Name="POSTAKODU" Type="varchar2" MaxLength="5" />
+    <Property Name="TELEFON" Type="varchar2" MaxLength="20" />
+    <Property Name="EMAIL" Type="varchar2" MaxLength="30" />
+    <Property Name="FAKS" Type="varchar2" MaxLength="20" />
+    <Property Name="ID" Type="number" Nullable="false" />
+  </EntityType>
+  <EntityType Name="REZERVASYON">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Nullable="false" />
+    <Property Name="MUSTERIID" Type="number" Nullable="false" />
+    <Property Name="GIRISTARIHI" Type="date" Nullable="false" />
+    <Property Name="CIKISTARIHI" Type="date" Nullable="false" />
+    <Property Name="TOPLAMTUTAR" Type="number" Nullable="false" />
+    <Property Name="REZERVASYONTARIHI" Type="date" Nullable="false" />
+    <Property Name="ODASAYISI" Type="number" Nullable="false" />
+    <Property Name="ODATIPIID" Type="number" Nullable="false" />
+    <Property Name="REZERVASYONDURUMID" Type="number" Nullable="false" />
+    <Property Name="ODEMETIPID" Type="number" Nullable="false" />
+  </EntityType>
+  <EntityType Name="REZERVASYONDURUM">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Nullable="false" />
+    <Property Name="ADI" Type="varchar2" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="ULKE">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="number" Nullable="false" />
+    <Property Name="ADI" Type="varchar2" MaxLength="20" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'ORS.YONETICI' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="YONETICI">
+    <Key>
+      <PropertyRef Name="KULLANICIADI" />
+      <PropertyRef Name="PAROLA" />
+    </Key>
+    <Property Name="KULLANICIADI" Type="varchar2" Nullable="false" MaxLength="20" />
+    <Property Name="PAROLA" Type="varchar2" Nullable="false" MaxLength="20" />
+  </EntityType>
+  <Association Name="IL_ULKE_FK1">
+    <End Role="ULKE" Type="Model.Store.ULKE" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="IL" Type="Model.Store.IL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ULKE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="IL">
+        <PropertyRef Name="ULKEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MUSTERI_IL_FK1">
+    <End Role="IL" Type="Model.Store.IL" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="MUSTERI" Type="Model.Store.MUSTERI" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IL">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="MUSTERI">
+        <PropertyRef Name="ILID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ODA_ODAKAPASITE_FK1">
+    <End Role="ODAKAPASITE" Type="Model.Store.ODAKAPASITE" Multiplicity="1" />
+    <End Role="ODA" Type="Model.Store.ODA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ODAKAPASITE">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ODA">
+        <PropertyRef Name="ODAKAPASITEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ODA_ODATIPI_FK1">
+    <End Role="ODATIPI" Type="Model.Store.ODATIPI" Multiplicity="1" />
+    <End Role="ODA" Type="Model.Store.ODA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ODATIPI">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ODA">
+        <PropertyRef Name="ODATIPID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ODAKAPASITE_ODATIPI_FK1">
+    <End Role="ODATIPI" Type="Model.Store.ODATIPI" Multiplicity="0..1" />
+    <End Role="ODAKAPASITE" Type="Model.Store.ODAKAPASITE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ODATIPI">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ODAKAPASITE">
+        <PropertyRef Name="ODATIPID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OTEL_IL_FK1">
+    <End Role="IL" Type="Model.Store.IL" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="OTEL" Type="Model.Store.OTEL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="IL">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="OTEL">
+        <PropertyRef Name="ILID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="REZERVASYON_MUSTERI_FK1">
+    <End Role="MUSTERI" Type="Model.Store.MUSTERI" Multiplicity="1" />
+    <End Role="REZERVASYON" Type="Model.Store.REZERVASYON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MUSTERI">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="REZERVASYON">
+        <PropertyRef Name="MUSTERIID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="REZERVASYON_ODATIPI_FK1">
+    <End Role="ODATIPI" Type="Model.Store.ODATIPI" Multiplicity="1" />
+    <End Role="REZERVASYON" Type="Model.Store.REZERVASYON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ODATIPI">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="REZERVASYON">
+        <PropertyRef Name="ODATIPIID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="REZERVASYON_ODEMETIPI_FK1">
+    <End Role="ODEMETIPI" Type="Model.Store.ODEMETIPI" Multiplicity="1" />
+    <End Role="REZERVASYON" Type="Model.Store.REZERVASYON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ODEMETIPI">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="REZERVASYON">
+        <PropertyRef Name="ODEMETIPID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="REZERVASYON_REZERVASYONDU_FK1">
+    <End Role="REZERVASYONDURUM" Type="Model.Store.REZERVASYONDURUM" Multiplicity="1" />
+    <End Role="REZERVASYON" Type="Model.Store.REZERVASYON" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REZERVASYONDURUM">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="REZERVASYON">
+        <PropertyRef Name="REZERVASYONDURUMID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="ADD_ODEME_TIPI" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ORS">
+    <Parameter Name="P_ODEMETIP_ID" Type="number" Mode="In" />
+    <Parameter Name="P_ODEMEADI" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="PKG_OSDM_UTILS_GATHER_CONSTRAINT_DETAILS_HTML" ReturnType="clob" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="PKG_OSDM_UTILS.GATHER_CONSTRAINT_DETAILS_HTML" Schema="ORS">
+    <Parameter Name="COL_ATTR_OVID" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="PKG_OSDM_UTILS_GATHER_CONSTRAINT_DETAILS_XML" ReturnType="clob" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="PKG_OSDM_UTILS.GATHER_CONSTRAINT_DETAILS_XML" Schema="ORS">
+    <Parameter Name="COL_ATTR_OVID" Type="varchar2" Mode="In" />
+    <Parameter Name="NAMESPACE" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="PKG_OSDM_UTILS_GATHER_DOMAIN_CONSTRAINTS_HTML" ReturnType="clob" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="PKG_OSDM_UTILS.GATHER_DOMAIN_CONSTRAINTS_HTML" Schema="ORS">
+    <Parameter Name="DOMAIN_OVID" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="PKG_OSDM_UTILS_GATHER_DOMAIN_CONSTRAINTS_XML" ReturnType="clob" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" StoreFunctionName="PKG_OSDM_UTILS.GATHER_DOMAIN_CONSTRAINTS_XML" Schema="ORS">
+    <Parameter Name="DOMAIN_OVID" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="RAISE_ODA_FIYAT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ORS">
+    <Parameter Name="P_ID" Type="number" Mode="In" />
+    <Parameter Name="P_PERCENT" Type="number" Mode="In" />
+  </Function>
+  <Function Name="TOPLAM_TUTAR" ReturnType="number" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="ORS">
+    <Parameter Name="P_ID" Type="number" Mode="In" />
+  </Function>
+</Schema>

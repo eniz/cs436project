@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="714710493b0f4f249b1c7f1deac29c0f" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="Model.IL" Width="1.5" PointX="9.9607511972825744" PointY="16.234482772757524" />
+        <EntityTypeShape EntityType="Model.MUSTERI" Width="1.5" PointX="4.9183663599744278" PointY="3.3784841761824134" />
+        <EntityTypeShape EntityType="Model.ODA" Width="1.5" PointX="5.8617031601544953" PointY="24.158899765535676" />
+        <EntityTypeShape EntityType="Model.ODAKAPASITE" Width="1.5" PointX="4.755648786553949" PointY="16.301765434584471" />
+        <EntityTypeShape EntityType="Model.ODATIPI" Width="1.5" PointX="1.1744083357855717" PointY="8.60483631892355" />
+        <EntityTypeShape EntityType="Model.ODEMETIPI" Width="1.5" PointX="0.011921670293398979" PointY="27.024817568727219" />
+        <EntityTypeShape EntityType="Model.OTEL" Width="1.5" PointX="6.1616237490259227" PointY="20.598454544599381" />
+        <EntityTypeShape EntityType="Model.REZERVASYON" Width="1.5" PointX="7.8657713047535021" PointY="24.867856245892057" />
+        <EntityTypeShape EntityType="Model.REZERVASYONDURUM" Width="1.5" PointX="1.3129952705060111" PointY="25.376317006245404" />
+        <EntityTypeShape EntityType="Model.ULKE" Width="1.5" PointX="0.77444342932405119" PointY="16.022456578920806" />
+        <EntityTypeShape EntityType="Model.YONETICI" Width="1.5" PointX="6.34987833274057" PointY="1.0366265033542301" />
+        <AssociationConnector Association="Model.IL_ULKE_FK1" />
+        <AssociationConnector Association="Model.MUSTERI_IL_FK1" />
+        <AssociationConnector Association="Model.OTEL_IL_FK1" />
+        <AssociationConnector Association="Model.REZERVASYON_MUSTERI_FK1" />
+        <AssociationConnector Association="Model.ODA_ODAKAPASITE_FK1" />
+        <AssociationConnector Association="Model.ODA_ODATIPI_FK1" />
+        <AssociationConnector Association="Model.ODAKAPASITE_ODATIPI_FK1" />
+        <AssociationConnector Association="Model.REZERVASYON_ODATIPI_FK1" />
+        <AssociationConnector Association="Model.REZERVASYON_ODEMETIPI_FK1" />
+        <AssociationConnector Association="Model.REZERVASYON_REZERVASYONDU_FK1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

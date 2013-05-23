@@ -1,0 +1,41 @@
+﻿@model OtelRezervasyon.Models.ODAKAPASITE
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Sil</h2>
+
+<h3>Silmek istediğinize emin misiniz?</h3>
+<fieldset>
+    <legend>ODAKAPASITE</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ADI)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ADI)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SAYISI)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SAYISI)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ODATIPI.ADI)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ODATIPI.ADI)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Sil" /> |
+        @Html.ActionLink("Listeye Geri Dön", "Index")
+    </p>
+}

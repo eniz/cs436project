@@ -1,0 +1,33 @@
+﻿@model IEnumerable<OtelRezervasyon.Models.ODA>
+@{
+    ViewBag.Title = "ORS";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+      <hr>
+
+      <div class="jumbotron">
+        <h1>Otel Rezervasyon Sistemi</h1>
+        <p class="lead">Özel Bir Otel Kalitesi İçin Yol Tercihiniz.</p>
+        <a href="/MusteriKayit/Create" class="btn btn-large btn-success">Kaydol</a>
+      </div>
+      <hr>
+      <div class="row-fluid marketing">
+        <div class="span12">
+            <div class="span6">
+                @foreach (var item in Model)
+                {
+                    <h4>@Html.DisplayFor(modelItem => item.ODAKAPASITE.ADI)</h4>
+                    <p class="lead">@Html.DisplayFor(modelItem => item.ODATIPI.ADI)
+                       @Html.DisplayFor(modelItem => item.ODATIPI.FIYAT) TL
+                    </p>
+                }
+            </div>
+
+        </div>
+       </div>
+      <hr>
+
+
+
+
+

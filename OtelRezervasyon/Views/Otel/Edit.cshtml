@@ -1,0 +1,76 @@
+﻿@model OtelRezervasyon.Models.OTEL
+
+@{
+    ViewBag.Title = "Otel Detay";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Otel Detayları</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>OTEL</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.OTELADI)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.OTELADI)
+            @Html.ValidationMessageFor(model => model.OTELADI)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ILID, "IL")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ILID", String.Empty)
+            @Html.ValidationMessageFor(model => model.ILID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.POSTAKODU)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.POSTAKODU)
+            @Html.ValidationMessageFor(model => model.POSTAKODU)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TELEFON)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TELEFON)
+            @Html.ValidationMessageFor(model => model.TELEFON)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EMAIL)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EMAIL)
+            @Html.ValidationMessageFor(model => model.EMAIL)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FAKS)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FAKS)
+            @Html.ValidationMessageFor(model => model.FAKS)
+        </div>
+
+        @Html.HiddenFor(model => model.ID)
+
+        <p>
+            <input type="submit" value="Kaydet" class="btn btn-primary" />
+        </p>
+    </fieldset>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

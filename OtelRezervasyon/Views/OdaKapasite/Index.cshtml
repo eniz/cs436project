@@ -1,0 +1,46 @@
+﻿@model IEnumerable<OtelRezervasyon.Models.ODAKAPASITE>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Oda Kapasite Listesi</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ADI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SAYISI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ODATIPI.ADI)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ADI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SAYISI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ODATIPI.ADI)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Detay", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

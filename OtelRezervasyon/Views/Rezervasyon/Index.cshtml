@@ -1,0 +1,89 @@
+﻿@model IEnumerable<OtelRezervasyon.Models.REZERVASYON>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    
+}
+<style type="text/css">
+    a{ display:inline; }
+</style>
+<h2>Rezervasyon Listesi</h2>
+
+<p>
+    @Html.ActionLink("Yeni Oluştur", "Create")
+</p>
+<table class="table table-striped">
+    <tr>
+        <th>
+           Müşteri Adı Soyadı
+        </th>
+        <th>
+          Giriş Tarihi
+        </th>
+        <th>
+          Çıkış Tarihi
+        </th>
+        <th>
+          Toplam Tutar
+        </th>
+        <th>
+          Rezervasyon Tarihi
+        </th>
+        <th>
+          Oda Sayısı
+        </th>
+        <th>
+            Oda Tipi
+        </th>
+        <th>
+            Rezervasyon Durumu
+        </th>
+        <th>
+            Ödeme Türü
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    var odaSayısı = item.ODASAYISI;
+    var fiyat = item.ODATIPI.FIYAT;
+    var ToplamTutar = odaSayısı * fiyat;
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MUSTERI.ADI)
+            @Html.DisplayFor(modelItem => item.MUSTERI.SOYADI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GIRISTARIHI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CIKISTARIHI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => ToplamTutar) TL
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.REZERVASYONTARIHI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ODASAYISI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ODATIPI.ADI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.REZERVASYONDURUM.ADI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ODEMETIPI.ODEMEADI)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id = item.ID }) 
+            @Html.ActionLink("Detay", "Details", new { id = item.ID }) 
+            @Html.ActionLink("Sil", "Delete", new { id = item.ID })
+        </td>
+    </tr>
+}
+
+</table>

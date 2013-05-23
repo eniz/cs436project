@@ -1,0 +1,37 @@
+﻿@model OtelRezervasyon.Models.ODAKAPASITE
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Oda Kapasite Detay</h2>
+
+<fieldset>
+    <legend>ODAKAPASITE</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ADI)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ADI)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SAYISI)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SAYISI)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ODATIPI.ADI)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ODATIPI.ADI)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

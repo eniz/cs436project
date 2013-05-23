@@ -1,0 +1,83 @@
+﻿@model OtelRezervasyon.Models.REZERVASYON
+
+@{
+    ViewBag.Title = "Rezervasyon Detay";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    
+}
+
+<h2>Detay</h2>
+
+<fieldset>
+    <legend>REZERVASYON</legend>
+    @{  var odaSayısı = Model.ODASAYISI;
+        var fiyat = Model.ODATIPI.FIYAT;
+        var ToplamTutar = odaSayısı * fiyat;
+    }
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MUSTERI.ADI)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MUSTERI.ADI)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.GIRISTARIHI)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GIRISTARIHI)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CIKISTARIHI)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CIKISTARIHI)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TOPLAMTUTAR)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => ToplamTutar)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.REZERVASYONTARIHI)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.REZERVASYONTARIHI)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ODASAYISI)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ODASAYISI)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ODATIPI.ADI)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ODATIPI.ADI)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.REZERVASYONDURUM.ADI)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.REZERVASYONDURUM.ADI)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ODEMETIPI.ODEMEADI)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ODEMETIPI.ODEMEADI)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Listeye Geri Dön", "Index")
+</p>

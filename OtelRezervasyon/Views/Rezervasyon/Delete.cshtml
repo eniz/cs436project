@@ -1,0 +1,84 @@
+﻿@model OtelRezervasyon.Models.REZERVASYON
+
+@{
+    ViewBag.Title = "Rezervasyon Sil";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    
+}
+
+<h2>Sil</h2>
+
+<h3>Silmek istediğinize emin misiniz?</h3>
+<fieldset>
+    <legend>REZERVASYON</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MUSTERI.ADI)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MUSTERI.ADI)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.GIRISTARIHI)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GIRISTARIHI)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CIKISTARIHI)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CIKISTARIHI)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TOPLAMTUTAR)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TOPLAMTUTAR)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.REZERVASYONTARIHI)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.REZERVASYONTARIHI)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ODASAYISI)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ODASAYISI)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ODATIPI.ADI)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ODATIPI.ADI)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.REZERVASYONDURUM.ADI)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.REZERVASYONDURUM.ADI)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ODEMETIPI.ODEMEADI)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ODEMETIPI.ODEMEADI)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Sil" /> |
+        @Html.ActionLink("Listeye Geri Dön", "Index")
+    </p>
+}

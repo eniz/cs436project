@@ -1,0 +1,71 @@
+﻿@model IEnumerable<OtelRezervasyon.Models.MUSTERI>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    
+}
+
+<h2>Müşteri Listesi</h2>
+
+<p>
+    @Html.ActionLink("Yeni Oluştur", "Create")
+</p>
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ADI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SOYADI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IL.ILADI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.POSTAKODU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EMAIL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TELEFON)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FAKS)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ADI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SOYADI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IL.ILADI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.POSTAKODU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMAIL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TELEFON)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FAKS)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Detay", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

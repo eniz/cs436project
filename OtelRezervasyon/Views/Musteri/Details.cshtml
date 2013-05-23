@@ -1,0 +1,66 @@
+﻿@model OtelRezervasyon.Models.MUSTERI
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    
+}
+
+<h2>Müşteri Detay</h2>
+
+<fieldset>
+    <legend>MUSTERI</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ADI)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ADI)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SOYADI)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SOYADI)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IL.ILADI)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IL.ILADI)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.POSTAKODU)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.POSTAKODU)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EMAIL)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EMAIL)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TELEFON)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TELEFON)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FAKS)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FAKS)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Listeye Geri Dön", "Index")
+</p>

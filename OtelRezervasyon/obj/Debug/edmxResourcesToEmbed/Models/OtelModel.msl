@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+    <FunctionImportMapping FunctionImportName="ADD_ODEME_TIPI" FunctionName="Model.Store.ADD_ODEME_TIPI" />
+    <FunctionImportMapping FunctionImportName="RAISE_ODA_FIYAT" FunctionName="Model.Store.RAISE_ODA_FIYAT" />
+    <EntitySetMapping Name="IL">
+      <EntityTypeMapping TypeName="Model.IL">
+        <MappingFragment StoreEntitySet="IL">
+          <ScalarProperty Name="ULKEID" ColumnName="ULKEID" />
+          <ScalarProperty Name="ILADI" ColumnName="ILADI" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MUSTERI">
+      <EntityTypeMapping TypeName="Model.MUSTERI">
+        <MappingFragment StoreEntitySet="MUSTERI">
+          <ScalarProperty Name="FAKS" ColumnName="FAKS" />
+          <ScalarProperty Name="TELEFON" ColumnName="TELEFON" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="POSTAKODU" ColumnName="POSTAKODU" />
+          <ScalarProperty Name="ILID" ColumnName="ILID" />
+          <ScalarProperty Name="SOYADI" ColumnName="SOYADI" />
+          <ScalarProperty Name="ADI" ColumnName="ADI" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ODA">
+      <EntityTypeMapping TypeName="Model.ODA">
+        <MappingFragment StoreEntitySet="ODA">
+          <ScalarProperty Name="ODATIPID" ColumnName="ODATIPID" />
+          <ScalarProperty Name="ODAKAPASITEID" ColumnName="ODAKAPASITEID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ODAKAPASITE">
+      <EntityTypeMapping TypeName="Model.ODAKAPASITE">
+        <MappingFragment StoreEntitySet="ODAKAPASITE">
+          <ScalarProperty Name="ODATIPID" ColumnName="ODATIPID" />
+          <ScalarProperty Name="SAYISI" ColumnName="SAYISI" />
+          <ScalarProperty Name="ADI" ColumnName="ADI" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ODATIPI">
+      <EntityTypeMapping TypeName="Model.ODATIPI">
+        <MappingFragment StoreEntitySet="ODATIPI">
+          <ScalarProperty Name="FIYAT" ColumnName="FIYAT" />
+          <ScalarProperty Name="RESIMI" ColumnName="RESIMI" />
+          <ScalarProperty Name="ADI" ColumnName="ADI" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ODEMETIPI">
+      <EntityTypeMapping TypeName="Model.ODEMETIPI">
+        <MappingFragment StoreEntitySet="ODEMETIPI">
+          <ScalarProperty Name="ODEMEADI" ColumnName="ODEMEADI" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OTEL">
+      <EntityTypeMapping TypeName="Model.OTEL">
+        <MappingFragment StoreEntitySet="OTEL">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FAKS" ColumnName="FAKS" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="TELEFON" ColumnName="TELEFON" />
+          <ScalarProperty Name="POSTAKODU" ColumnName="POSTAKODU" />
+          <ScalarProperty Name="ILID" ColumnName="ILID" />
+          <ScalarProperty Name="OTELADI" ColumnName="OTELADI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="REZERVASYON">
+      <EntityTypeMapping TypeName="Model.REZERVASYON">
+        <MappingFragment StoreEntitySet="REZERVASYON">
+          <ScalarProperty Name="ODEMETIPID" ColumnName="ODEMETIPID" />
+          <ScalarProperty Name="REZERVASYONDURUMID" ColumnName="REZERVASYONDURUMID" />
+          <ScalarProperty Name="ODATIPIID" ColumnName="ODATIPIID" />
+          <ScalarProperty Name="ODASAYISI" ColumnName="ODASAYISI" />
+          <ScalarProperty Name="REZERVASYONTARIHI" ColumnName="REZERVASYONTARIHI" />
+          <ScalarProperty Name="TOPLAMTUTAR" ColumnName="TOPLAMTUTAR" />
+          <ScalarProperty Name="CIKISTARIHI" ColumnName="CIKISTARIHI" />
+          <ScalarProperty Name="GIRISTARIHI" ColumnName="GIRISTARIHI" />
+          <ScalarProperty Name="MUSTERIID" ColumnName="MUSTERIID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="REZERVASYONDURUM">
+      <EntityTypeMapping TypeName="Model.REZERVASYONDURUM">
+        <MappingFragment StoreEntitySet="REZERVASYONDURUM">
+          <ScalarProperty Name="ADI" ColumnName="ADI" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ULKE">
+      <EntityTypeMapping TypeName="Model.ULKE">
+        <MappingFragment StoreEntitySet="ULKE">
+          <ScalarProperty Name="ADI" ColumnName="ADI" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YONETICI">
+      <EntityTypeMapping TypeName="Model.YONETICI">
+        <MappingFragment StoreEntitySet="YONETICI">
+          <ScalarProperty Name="PAROLA" ColumnName="PAROLA" />
+          <ScalarProperty Name="KULLANICIADI" ColumnName="KULLANICIADI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

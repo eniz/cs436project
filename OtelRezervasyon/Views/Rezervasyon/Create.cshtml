@@ -1,0 +1,102 @@
+﻿@model OtelRezervasyon.Models.REZERVASYON
+
+@{
+    ViewBag.Title = "Rezervasyon Oluştur";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    
+}
+
+<h2>Yeni Rezervasyon Oluştur</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>REZERVASYON</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MUSTERIID, "MUSTERI")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("MUSTERIID", String.Empty)
+            @Html.ValidationMessageFor(model => model.MUSTERIID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.GIRISTARIHI)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.GIRISTARIHI)
+            @Html.ValidationMessageFor(model => model.GIRISTARIHI)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CIKISTARIHI)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CIKISTARIHI)
+            @Html.ValidationMessageFor(model => model.CIKISTARIHI)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TOPLAMTUTAR)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TOPLAMTUTAR)
+            @Html.ValidationMessageFor(model => model.TOPLAMTUTAR)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.REZERVASYONTARIHI)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.REZERVASYONTARIHI)
+            @Html.ValidationMessageFor(model => model.REZERVASYONTARIHI)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ODASAYISI)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ODASAYISI)
+            @Html.ValidationMessageFor(model => model.ODASAYISI)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ODATIPIID, "ODATIPI")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ODATIPIID", String.Empty)
+            @Html.ValidationMessageFor(model => model.ODATIPIID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.REZERVASYONDURUMID, "REZERVASYONDURUM")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("REZERVASYONDURUMID", String.Empty)
+            @Html.ValidationMessageFor(model => model.REZERVASYONDURUMID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ODEMETIPID, "ODEMETIPI")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ODEMETIPID", String.Empty)
+            @Html.ValidationMessageFor(model => model.ODEMETIPID)
+        </div>
+
+        <p>
+            <input type="submit" value="Kaydet" class="btn btn-primary" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Listeye Geri Dön", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

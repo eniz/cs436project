@@ -1,0 +1,88 @@
+﻿@model OtelRezervasyon.Models.MUSTERI
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    
+}
+
+<h2>Müşteri Düzenle</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>MUSTERI</legend>
+
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ADI)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ADI)
+            @Html.ValidationMessageFor(model => model.ADI)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SOYADI)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SOYADI)
+            @Html.ValidationMessageFor(model => model.SOYADI)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ILID, "IL")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("ILID", String.Empty)
+            @Html.ValidationMessageFor(model => model.ILID)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.POSTAKODU)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.POSTAKODU)
+            @Html.ValidationMessageFor(model => model.POSTAKODU)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EMAIL)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EMAIL)
+            @Html.ValidationMessageFor(model => model.EMAIL)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TELEFON)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TELEFON)
+            @Html.ValidationMessageFor(model => model.TELEFON)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FAKS)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.FAKS)
+            @Html.ValidationMessageFor(model => model.FAKS)
+        </div>
+
+        <p>
+            <input type="submit" value="Kaydet" class="btn btn-primary" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Listeye Geri Dön", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

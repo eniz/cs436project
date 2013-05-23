@@ -1,0 +1,70 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-inverse">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="/Admin">Yönetim Paneli</a>
+                <div class="nav-collapse">
+                    <ul class="nav">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Otel Yönetimi <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/Otel/Edit/1">Otel Bilgisi</a></li>
+                                <li><a href="/Oda">Oda Yönetimi</a></li>
+                                <li><a href="/OdaTipi">Oda Tipi Listesi</a></li>
+                                <li><a href="/OdaKapasite">Kapasite Litesi</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Rezervasyon Yönetimi <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/Rezervasyon">Tüm Rezervasyonlar</a></li>
+                                <li><a href="/Musteri">Müşteri Listesi</a></li>
+                            </ul>
+                        </li> 
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Ayarlar <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/OdemeTipi">Ödeme Türleri</a></li>
+                            </ul>
+                        </li> 
+                    </ul>
+                    <ul class="nav pull-right">
+                        <li class="divider-vertical"></li>
+                        <li class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">@Html.Raw((User.Identity).Name)<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/Home">Siteyi Göster</a></li>
+                                <li class="divider"></li>
+                                <li><a href="@Url.Action("Logout", "Account")">Oturumu Kapat</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="span12">
+            @RenderBody()
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+

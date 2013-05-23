@@ -1,0 +1,59 @@
+﻿@model IEnumerable<OtelRezervasyon.Models.OTEL>
+
+@{
+    ViewBag.Title = "Otel Bilgileri";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Otel Listesi</h2>
+
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OTELADI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IL.ILADI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.POSTAKODU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TELEFON)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EMAIL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FAKS)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OTELADI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IL.ILADI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.POSTAKODU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TELEFON)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMAIL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FAKS)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.ID }) 
+        </td>
+    </tr>
+}
+
+</table>

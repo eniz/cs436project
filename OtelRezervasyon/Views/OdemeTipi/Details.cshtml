@@ -1,0 +1,23 @@
+﻿@model OtelRezervasyon.Models.ODEMETIPI
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";    
+}
+
+<h2>Detay</h2>
+
+<fieldset>
+    <legend>ODEMETIPI</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ODEMEADI)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ODEMEADI)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Listeye Geri Dön", "Index")
+</p>

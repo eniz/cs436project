@@ -1,0 +1,70 @@
+﻿@model OtelRezervasyon.Models.MUSTERI
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+    
+}
+
+<h2>Sil</h2>
+
+<h3>Müşteriyi Silmek istediğinize Emin misiniz?</h3>
+<fieldset>
+    <legend>MUSTERI</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ADI)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ADI)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SOYADI)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SOYADI)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IL.ILADI)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IL.ILADI)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.POSTAKODU)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.POSTAKODU)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EMAIL)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EMAIL)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TELEFON)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TELEFON)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.FAKS)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FAKS)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Sil" class="btn btn-danger" /> |
+        @Html.ActionLink("Listeye Geri Dön", "Index")
+    </p>
+}

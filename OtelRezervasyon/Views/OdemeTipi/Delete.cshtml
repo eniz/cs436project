@@ -1,0 +1,27 @@
+﻿@model OtelRezervasyon.Models.ODEMETIPI
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";    
+}
+
+<h2>Sil</h2>
+
+<h3>Silmek istediğize emin misiniz?</h3>
+<fieldset>
+    <legend>ODEMETIPI</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ODEMEADI)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ODEMEADI)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Sil" /> |
+        @Html.ActionLink("Listeye Geri Dön", "Index")
+    </p>
+}
